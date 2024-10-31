@@ -1,0 +1,34 @@
+.nav-font {
+  font-family: "Mulish", sans-serif;
+  font-weight: 300;
+  font-size: 32px;
+  color: #1ba098;
+  text-decoration: none;
+}
+
+.nav-font:hover {
+  color: darken(#1ba098, 15%);
+}
+
+.navbar {
+  border: 1px solid #deb992;
+  box-shadow: none;
+}
+
+.dropdown-menu {
+  background-color: #0b2d45;
+}
+
+.dropdown-item {
+  color: #1ba098;
+  text-decoration: none;
+  padding: 10px 15px;
+  border-bottom: 1px solid #1ba098;
+  text-align: center;
+}
+
+.dropdown-item:hover {
+  background-color: transparent;
+  color: #7fe1da;
+  text-decoration: none;
+}

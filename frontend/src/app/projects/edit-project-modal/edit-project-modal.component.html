@@ -1,0 +1,77 @@
+<div
+  class="modal fade"
+  id="editProject"
+  aria-labelledby="editProjectLabel"
+  aria-hidden="true"
+>
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="d-flex justify-content-end">
+        <button
+          type="button"
+          class="btn-close"
+          data-bs-dismiss="modal"
+          aria-label="Close"
+        ></button>
+      </div>
+      <div class="modal-body">
+        <form (ngSubmit)="submitEditProject()" *ngIf="project">
+          <div class="mb-3">
+            <label for="projectName" class="form-label text-start w-100"
+              >Project Name</label
+            >
+            <input
+              type="text"
+              class="form-control input-line"
+              name="projectName"
+              id="projectName"
+              [(ngModel)]="project.name"
+              required
+            />
+          </div>
+          <div class="mb-3">
+            <label for="description" class="form-label text-start w-100"
+              >Description</label
+            >
+            <input
+              type="text"
+              class="form-control input-line"
+              name="description"
+              id="description"
+              [(ngModel)]="project.description"
+              required
+            />
+          </div>
+          <div class="mb-3" *ngIf="user?.admin">
+            <label
+              for="active"
+              class="form-label text-start fs-5 mt-5 text-center w-100"
+              >Active?</label
+            >
+            <div class="d-flex justify-content-center">
+              <select
+                id="active"
+                class="my-dropdown text-center d-flex justify-content-center"
+                [(ngModel)]="project.active"
+                name="active"
+                required
+              >
+                <option [ngValue]="true">Yes</option>
+                <option [ngValue]="false">No</option>
+              </select>
+            </div>
+          </div>
+          <div class="mb-3 d-flex justify-content-center">
+            <button
+              type="submit"
+              class="btn custom-btn"
+              data-bs-dismiss="modal"
+            >
+              Save
+            </button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>

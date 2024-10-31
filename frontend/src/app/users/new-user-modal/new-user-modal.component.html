@@ -1,0 +1,130 @@
+<div
+  class="modal fade"
+  id="newUser"
+  aria-labelledby="newUserlabel"
+  aria-hidden="true"
+  #modal
+>
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="d-flex justify-content-end">
+        <button
+          type="button"
+          class="btn-close"
+          data-bs-dismiss="modal"
+          aria-label="Close"
+        ></button>
+      </div>
+      <div class="modal-body">
+        <form (ngSubmit)="submitUser(modal)">
+          <div class="row mb-3">
+            <div class="col">
+              <input
+                type="text"
+                class="form-control input-line"
+                name="firstName"
+                id="firstName"
+                placeholder="First Name"
+                [(ngModel)]="newUserRequest.profile.firstName"
+                required
+              />
+            </div>
+            <div class="col">
+              <input
+                type="text"
+                class="form-control input-line"
+                name="lastName"
+                id="lastName"
+                placeholder="Last Name"
+                [(ngModel)]="newUserRequest.profile.lastName"
+                required
+              />
+            </div>
+          </div>
+          <div class="mb-3">
+            <input
+              type="email"
+              class="form-control input-line"
+              name="email"
+              id="email"
+              placeholder="Email"
+              [(ngModel)]="newUserRequest.profile.email"
+              (ngModelChange)="updateUsername($event)"
+              required
+            />
+          </div>
+          <div class="mb-3">
+            <input
+              type="tel"
+              class="form-control input-line"
+              name="phone"
+              id="phone"
+              placeholder="Phone Number"
+              [(ngModel)]="newUserRequest.profile.phone"
+              required
+            />
+          </div>
+          <div class="row mb-3">
+            <div class="col">
+              <input
+                type="password"
+                class="form-control input-line"
+                name="password"
+                id="password"
+                placeholder="Password"
+                [(ngModel)]="newUserRequest.credentials.password"
+                required
+              />
+            </div>
+            <div class="col">
+              <input
+                type="password"
+                class="form-control input-line"
+                name="confirmPassword"
+                id="confirmPassword"
+                placeholder="Confirm Password"
+                [(ngModel)]="confirmPassword"
+                required
+              />
+            </div>
+          </div>
+          <div *ngIf="errorMessage" class="text-danger mb-3">
+            {{ errorMessage }}
+          </div>
+          <div class="mb-3">
+            <label
+              for="admin"
+              class="form-label text-start fs-5 mt-5 text-center w-100"
+            >
+              Make user an admin role?
+            </label>
+            <div class="d-flex justify-content-center">
+              <select
+                id="admin"
+                class="my-dropdown text-center d-flex justify-content-center"
+                name="admin"
+                [(ngModel)]="newUserRequest.admin"
+                required
+              >
+                <option value="" disabled selected class="default-option">
+                  Pick an option
+                </option>
+                <option [value]="true">Yes</option>
+                <option [value]="false">No</option>
+              </select>
+            </div>
+          </div>
+          <div class="mb-3 d-flex justify-content-center">
+            <button
+              type="submit"
+              class="btn custom-btn"
+              data-bs-dismiss="modal"
+            >
+              Submit
+            </button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,48 @@
+<div
+  class="container-lg d-flex mt-5 flex-column justify-content-center align-items-center"
+>
+  <h1 class="text-center">COOK SYSTEMS</h1>
+  <h3 class="text-center">A FINAL APP</h3>
+  <div
+    class="card custom-card mt-5 pt-5 justify-content-center align-items-center"
+  >
+    <div class="card-body">
+      <img class="icon" src="assets/images/email.png" alt="email icon" />
+      <form (ngSubmit)="login()" #loginForm="ngForm">
+        <div class="mb-3">
+          <input
+            type="text"
+            class="input-line text-center"
+            aria-describedby="username"
+            placeholder="username"
+            [(ngModel)]="credentials.username"
+            name="username"
+            required
+          />
+        </div>
+        <div class="mb-3">
+          <input
+            type="password"
+            class="input-line text-center"
+            placeholder="password"
+            [(ngModel)]="credentials.password"
+            name="password"
+            required
+          />
+        </div>
+        <div class="mb-3 d-flex justify-content-center">
+          <button
+            type="submit"
+            class="btn login-btn"
+            [disabled]="loginForm.invalid"
+          >
+            LOGIN
+          </button>
+        </div>
+      </form>
+      <div *ngIf="errorMessage" class="error-message text-danger">
+        {{ errorMessage }}
+      </div>
+    </div>
+  </div>
+</div>

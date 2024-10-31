@@ -1,0 +1,58 @@
+<div
+  class="modal fade"
+  id="newProject"
+  aria-labelledby="newProjectlabel"
+  aria-hidden="true"
+>
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div>
+        <button
+          type="button"
+          class="btn-close"
+          data-bs-dismiss="modal"
+          aria-label="Close"
+        ></button>
+      </div>
+      <div class="modal-body">
+        <form (ngSubmit)="submitProject()">
+          <div class="mb-3">
+            <label for="projectName" class="form-label text-start w-100">
+              Project Name
+            </label>
+            <input
+              type="text"
+              class="form-control input-line"
+              name="projectName"
+              id="projectName"
+              [(ngModel)]="newProjectRequest.name"
+              required
+            />
+          </div>
+          <div class="mb-3">
+            <label for="description" class="form-label text-start w-100">
+              Description
+            </label>
+            <input
+              type="text"
+              class="form-control input-line"
+              name="description"
+              id="description"
+              [(ngModel)]="newProjectRequest.description"
+              required
+            />
+          </div>
+          <div class="mb-3 d-flex justify-content-center">
+            <button
+              type="submit"
+              class="btn custom-btn"
+              data-bs-dismiss="modal"
+            >
+              Submit
+            </button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>

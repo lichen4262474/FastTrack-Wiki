@@ -1,0 +1,103 @@
+<div
+  class="modal fade"
+  id="newTeam"
+  aria-labelledby="newTeamlabel"
+  aria-hidden="true"
+>
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="d-flex justify-content-end">
+        <button
+          type="button"
+          class="btn-close"
+          data-bs-dismiss="modal"
+          aria-label="Close"
+        ></button>
+      </div>
+      <div class="modal-body">
+        <form (ngSubmit)="submitTeam()">
+          <div class="mb-3">
+            <label for="teamname" class="form-label text-start w-100"
+              >Team Name</label
+            >
+            <input
+              type="text"
+              class="form-control input-line"
+              [(ngModel)]="newTeam.name"
+              name="teamname"
+              id="teamname"
+              required
+            />
+          </div>
+          <div class="mb-3">
+            <label for="description" class="form-label text-start w-100"
+              >Description</label
+            >
+            <input
+              type="text"
+              class="form-control input-line"
+              [(ngModel)]="newTeam.description"
+              name="description"
+              id="description"
+              required
+            />
+          </div>
+          <!-- Members dropdown -->
+          <div class="mb-3">
+            <label
+              for="members"
+              class="form-label text-start fs-5 mt-5 text-center w-100"
+              >Select Members</label
+            >
+            <div class="d-flex justify-content-center">
+              <select
+                id="members"
+                (change)="onTeammateSelect($event)"
+                class="my-dropdown text-center d-flex justify-content-center"
+              >
+                <option value="" disabled selected class="default-option">
+                  Pick an option
+                </option>
+                <option *ngFor="let user of allUsers" [value]="user.id">
+                  <!-- Populate dropdown with users -->
+                  {{ user.profile.firstName }} {{ user.profile.lastName }}
+                </option>
+              </select>
+            </div>
+          </div>
+
+          <!-- Selected members display -->
+          <div class="container selected-members text-center">
+            <div class="row fs-6 d-flex justify-content-center">
+              <div
+                *ngFor="let teammate of newTeam.teammates"
+                class="col-7 custom-btn d-flex justify-content-between"
+              >
+                {{ teammate.profile.firstName }}
+                {{ teammate.profile.lastName }}
+                <button
+                  type="button"
+                  class="btn-close"
+                  aria-label="Close"
+                  (click)="removeTeammate(teammate)"
+                ></button>
+                <!-- Remove button for teammates -->
+              </div>
+            </div>
+          </div>
+
+          <div class="mb-3 d-flex justify-content-center">
+            <button
+              type="submit"
+              class="btn custom-btn"
+              data-bs-dismiss="modal"
+            >
+              Submit
+            </button>
+            <!-- Submit button -->
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,52 @@
+<div
+  class="container-lg d-flex mt-5 flex-column justify-content-center align-items-center"
+>
+  <nav class="navbar fixed-top navbar-expand-lg">
+    <div class="container-lg d-flex justify-content-end">
+      <div class="navbar-brand" href="#">
+        <img
+          src="assets/images/email.png"
+          alt="Logo"
+          style="height: 50px; margin-right: 10px"
+        />
+        <span class="brand-text text-danger">ACTING AS ADMIN</span>
+        <!-- Brand text -->
+      </div>
+      <!-- Hamburger button (only visible on small screens) -->
+      <button
+        class="btn px-3 d-lg-none ms-auto"
+        type="button"
+        id="dropdownMenuButton"
+        data-bs-toggle="dropdown"
+        aria-expanded="false"
+      >
+        <img src="assets/images/hamburger.png" />
+      </button>
+
+      <!-- Dropdown menu for small screens (collapses into hamburger) -->
+      <ul
+        class="dropdown-menu dropdown-menu-end"
+        aria-labelledby="dropdownMenuButton"
+      >
+        <li><a class="dropdown-item nav-font" routerLink="/home">Home</a></li>
+        <li>
+          <a class="dropdown-item nav-font" routerLink="/company">Company</a>
+        </li>
+        <li><a class="dropdown-item nav-font" routerLink="/teams">Teams</a></li>
+        <li><a class="dropdown-item nav-font" routerLink="/users">Users</a></li>
+        <li>
+          <a class="dropdown-item nav-font" routerLink="/logout">Logout</a>
+        </li>
+      </ul>
+
+      <!-- Horizontal menu for larger screens (hidden on small screens) -->
+      <div class="d-none d-lg-flex ms-auto">
+        <a class="nav-link nav-font me-4" routerLink="/home">Home</a>
+        <a class="nav-link nav-font me-4" routerLink="/company">Company</a>
+        <a class="nav-link nav-font me-4" routerLink="/teams">Teams</a>
+        <a class="nav-link nav-font me-4" routerLink="/users">Users</a>
+        <a class="nav-link nav-font me-4" routerLink="/logout">Logout</a>
+      </div>
+    </div>
+  </nav>
+</div>

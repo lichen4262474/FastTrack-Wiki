@@ -1,0 +1,99 @@
+/* You can add global styles to this file, and also import other style files */
+body {
+  background-color: #051622;
+}
+
+.custom-btn {
+  background-color: #1ba098;
+  color: white;
+  border: 2px solid #1ba098;
+  border-radius: 5px;
+  padding-left: 10px;
+  padding-right: 10px;
+  margin: 10px;
+}
+.custom-btn:hover {
+  background-color: #55c7b8;
+}
+
+.custom-btn-edit {
+  background-color: #deb992;
+  color: black;
+  border: 2px solid #deb992;
+  border-radius: 5px;
+  padding-left: 10px;
+  padding-right: 10px;
+  margin: 10px;
+}
+.custom-btn-edit:hover {
+  background-color: #e4cbb1;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  color: #1ba098;
+}
+
+.custom-hr {
+  border: none;
+  height: 2px;
+  background-color: #deb992;
+  margin: 20px 0;
+}
+.my-dropdown {
+  border-radius: 15px;
+  padding: 5px;
+  background-color: #f8f9fa;
+  width: 200px;
+  font-weight: bold;
+  color: purple;
+}
+.btn-close {
+  background: none;
+  border: none;
+}
+
+.btn-close::before {
+  content: "\2297";
+  color: red;
+  font-size: 1.5rem;
+}
+
+.btn-close::after {
+  content: none;
+}
+
+.modal-content {
+  background-color: #051622;
+  color: #1ba098;
+}
+
+.modal-content .form-label {
+  color: #deb992;
+}
+
+.input-line {
+  border: none;
+  border-bottom: 2px solid #deb992;
+  outline: none;
+  width: 100%;
+  padding: 10px 0;
+  background-color: transparent;
+  color: #deb992;
+}
+.input-line:focus {
+  border-bottom: 2px solid #deb992;
+  outline: none;
+  box-shadow: none;
+  color: #deb992;
+  background-color: transparent;
+}
+
+.input-line::placeholder {
+  color: #deb992;
+  opacity: 1;
+}

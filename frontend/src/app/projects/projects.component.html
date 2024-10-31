@@ -1,0 +1,65 @@
+<app-admin-nav *ngIf="user?.admin"></app-admin-nav>
+<app-worker-nav *ngIf="!user?.admin" [user]="user"></app-worker-nav>
+
+<div class="container-lg mt-5 d-flex flex-column align-items-center">
+  <h1>
+    Projects for Team <span>{{ teamId }}</span>
+  </h1>
+  <div class="row w-100 justify-content-end" *ngIf="user?.admin">
+    <button
+      class="col-1 custom-btn"
+      data-bs-toggle="modal"
+      data-bs-target="#newProject"
+    >
+      New
+    </button>
+  </div>
+  <div class="row w-100"><hr class="custom-hr" /></div>
+  <!-- Projects -->
+  <div class="row w-100">
+    <ng-container *ngIf="projects.length > 0; else noProjects">
+      <div class="project-item" *ngFor="let project of projects">
+        <div class="row justify-content-start">
+          <p class="col-4 fs-4 text-white">
+            {{ project.name }}
+          </p>
+          <p
+            class="col-1"
+            [ngClass]="{
+              'text-success': project.active,
+              'text-danger': !project.active
+            }"
+          >
+            {{ project.active ? "Active" : "Inactive" }}
+          </p>
+        </div>
+        <div class="row justify-content-between">
+          <p class="col-10 text-white">{{ project.description }}</p>
+          <button
+            class="col-1 custom-btn-edit"
+            data-bs-toggle="modal"
+            data-bs-target="#editProject"
+            (click)="editProject(project.id)"
+          >
+            Edit
+          </button>
+        </div>
+        <div class="row w-100"><hr class="custom-hr" /></div>
+      </div>
+    </ng-container>
+
+    <ng-template #noProjects>
+      <p class="text-white">No projects available for this team.</p>
+    </ng-template>
+  </div>
+  <!-- Edit Project Modal -->
+  <app-edit-project-modal
+    [project]="selectedProject"
+    [user]="user"
+    (projectUpdated)="onProjectUpdated()"
+  ></app-edit-project-modal>
+  <!-- New Project Modal -->
+  <app-new-project-modal
+    (projectAdded)="OnProjectAdded()"
+  ></app-new-project-modal>
+</div>

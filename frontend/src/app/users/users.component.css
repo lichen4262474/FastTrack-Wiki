@@ -1,0 +1,27 @@
+.custom-table {
+  background-color: transparent;
+  border: 2px solid #deb992;
+  width: 75%;
+}
+
+.custom-table th,
+.custom-table td {
+  padding: 12px;
+}
+
+.custom-table th {
+  border-bottom: 1px solid #deb992;
+  color: white;
+}
+.custom-table td {
+  border-bottom: 1px solid #deb992;
+  color: #deb992;
+  border-right: none;
+  border-left: none;
+}
+.custom-table tr:last-child td {
+  border-bottom: none;
+}
+.custom-table tbody tr:hover {
+  background-color: rgba(255, 255, 255, 0.1);
+}

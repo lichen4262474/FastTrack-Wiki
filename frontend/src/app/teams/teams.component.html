@@ -1,0 +1,49 @@
+<app-admin-nav *ngIf="user?.admin"></app-admin-nav>
+<app-worker-nav *ngIf="!user?.admin" [user]="user"></app-worker-nav>
+
+<div class="container-lg mt-5 d-flex flex-column align-items-center">
+  <h1>Teams</h1>
+
+  <div class="teams row w-100 mt-5 gx-5">
+    <!-- Loop for teams -->
+    <div *ngFor="let team of teams" class="col-md-6 col-lg-4 mb-4 d-flex">
+      <div
+        class="teams-item p-5 rounded d-flex flex-column justify-content-between w-100 h-100"
+        (click)="onTeamSelect(team.id)"
+        style="cursor: pointer"
+      >
+        <p class="fs-5 d-flex justify-content-between">
+          <span>{{ team.name }}</span>
+        </p>
+        <hr class="custom-hr" />
+        <p class="fs-5 text-center">Members</p>
+        <div class="container members text-center">
+          <div class="row fs-6 g-2">
+            <div class="d-flex flex-wrap justify-content-center">
+              <div
+                *ngFor="let member of team.teammates"
+                class="col-5 custom-btn"
+              >
+                {{ member.profile.firstName }} {{ member.profile.lastName }}
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Button to add new team -->
+    <div class="col-md-6 col-lg-4 mb-4 d-flex" *ngIf="user?.admin">
+      <div
+        class="btn add p-5 rounded d-flex flex-column justify-content-center align-items-center w-100 h-100"
+        data-bs-toggle="modal"
+        data-bs-target="#newTeam"
+      >
+        <span class="plus-sign">+</span>
+        <span class="new-team-text">New Team</span>
+      </div>
+      <!-- Modal -->
+      <app-new-team-modal (teamAdded)="onTeamAdded()"></app-new-team-modal>
+    </div>
+  </div>
+</div>

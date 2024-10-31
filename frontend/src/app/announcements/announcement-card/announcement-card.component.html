@@ -1,0 +1,17 @@
+<div class="card mt-3 p-3">
+  <div class="card-body">
+    <h5 class="card-title d-flex justify-content-between">
+      <span>
+        {{ announcement.author.profile.firstName }}
+        {{ announcement.author.profile.lastName }}
+      </span>
+      <span>{{ announcement.date | date : "MMMM d, yyyy" }}</span>
+    </h5>
+    <h3 class="card-title">
+      {{ announcement.title }}
+    </h3>
+    <p class="card-text">
+      {{ announcement.message }}
+    </p>
+  </div>
+</div>

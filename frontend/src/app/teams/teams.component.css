@@ -1,0 +1,18 @@
+.teams-item {
+  background-color: #0b2d45;
+  color: white;
+}
+
+.add {
+  border: 2px solid #deb992;
+  background-color: transparent;
+}
+.plus-sign {
+  font-size: 110px;
+  color: #deb992;
+}
+.new-team-text {
+  font-size: 15px;
+  color: #deb992;
+  margin-top: 10px;
+}

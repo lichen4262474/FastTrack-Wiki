@@ -1,0 +1,30 @@
+<app-admin-nav *ngIf="user?.admin"></app-admin-nav>
+<app-worker-nav *ngIf="!user?.admin" [user]="user"></app-worker-nav>
+
+<div class="container-lg mt-5 d-flex flex-column align-items-center">
+  <h1>Announcements</h1>
+  <div class="row w-100 justify-content-end">
+    <button
+      *ngIf="user?.admin"
+      class="col-1 custom-btn"
+      data-bs-toggle="modal"
+      data-bs-target="#newAnnouncement"
+    >
+      New
+    </button>
+    <!-- Modal -->
+    <app-new-announcement-modal
+      (announcementAdded)="fetchAnnouncements()"
+    ></app-new-announcement-modal>
+  </div>
+  <div class="row w-100"><hr class="custom-hr" /></div>
+  <div class="container mt-4">
+    <div class="row">
+      <!-- announcement card -->
+      <app-announcement-card
+        *ngFor="let announcement of announcements"
+        [announcement]="announcement"
+      ></app-announcement-card>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,40 @@
+<app-admin-nav *ngIf="user?.admin"></app-admin-nav>
+<app-worker-nav *ngIf="!user?.admin"></app-worker-nav>
+<div class="container-lg mt-5 d-flex flex-column align-items-center">
+  <h1>User Registry</h1>
+  <h6>A general view of all your members in your organization</h6>
+  <table class="custom-table mt-5">
+    <thead>
+      <tr class="fs-4">
+        <th>Name</th>
+        <th>Email</th>
+        <th>Active</th>
+        <th>Admin</th>
+        <th>Status</th>
+      </tr>
+    </thead>
+    <tbody class="fs-4">
+      <tr *ngFor="let user of users">
+        <td>{{ user.profile.firstName }} {{ user.profile.lastName }}</td>
+        <td>{{ user.profile.email }}</td>
+        <td [ngClass]="user.active ? 'text-success' : 'text-danger'">
+          {{ user.active ? "YES" : "NO" }}
+        </td>
+        <td [ngClass]="user.admin ? 'text-success' : 'text-danger'">
+          {{ user.admin ? "YES" : "NO" }}
+        </td>
+        <td>{{ user.status }}</td>
+      </tr>
+    </tbody>
+  </table>
+  <div class="row mt-4 w-75 justify-content-start">
+    <button
+      class="col-2 custom-btn"
+      data-bs-toggle="modal"
+      data-bs-target="#newUser"
+    >
+      Add User
+    </button>
+  </div>
+  <app-new-user-modal (userAdded)="onUserAdded()"></app-new-user-modal>
+</div>

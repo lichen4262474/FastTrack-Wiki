@@ -1,0 +1,56 @@
+<div
+  class="modal fade"
+  id="newAnnouncement"
+  aria-labelledby="newAnnouncementlabel"
+  aria-hidden="true"
+>
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div>
+        <button
+          type="button"
+          class="btn-close"
+          data-bs-dismiss="modal"
+          aria-label="Close"
+        ></button>
+      </div>
+      <div class="modal-body">
+        <form (ngSubmit)="submitAnnouncement()">
+          <div class="mb-3">
+            <label for="title" class="form-label text-start w-100">Title</label>
+            <input
+              type="text"
+              class="form-control input-line"
+              [(ngModel)]="newAnnouncement.title"
+              name="title"
+              id="title"
+              required
+            />
+          </div>
+          <div class="mb-3">
+            <label for="message" class="form-label text-start w-100"
+              >Message</label
+            >
+            <input
+              type="text"
+              class="form-control input-line"
+              [(ngModel)]="newAnnouncement.message"
+              name="message"
+              id="message"
+              required
+            />
+          </div>
+          <div class="mb-3 d-flex justify-content-center">
+            <button
+              type="submit"
+              class="btn custom-btn"
+              data-bs-dismiss="modal"
+            >
+              Submit
+            </button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>

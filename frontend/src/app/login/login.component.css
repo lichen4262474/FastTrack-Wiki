@@ -1,0 +1,38 @@
+.input-line {
+  border: none;
+  border-bottom: 5px solid white;
+  outline: none;
+  width: 100%;
+  padding: 10px 0;
+  font-size: 16px;
+  background-color: transparent;
+  color: #1ba098;
+}
+
+.input-line::placeholder {
+  color: #1ba098;
+  opacity: 1; /* Ensure the placeholder is fully opaque */
+}
+
+.custom-card {
+  background-color: #051622;
+  color: #1ba098;
+  border: 2px solid orange;
+  border-radius: 15px;
+  box-shadow: 0 4px 15px rgba(255, 165, 0, 0.5);
+  width: 400px;
+}
+
+.login-btn {
+  background-color: transparent;
+  color: white;
+  border: 2px solid #1ba098;
+  border-radius: 30px;
+  padding: 10px 20px;
+  opacity: 1;
+  transition: background-color 0.3s;
+}
+
+.login-btn:hover {
+  background-color: rgba(27, 160, 152, 0.2);
+}
